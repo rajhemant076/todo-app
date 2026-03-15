@@ -45,9 +45,18 @@ const Todo = sequelize.define(
       defaultValue: null,
     },
     tags: {
-      type: DataTypes.JSON,
+      type: DataTypes.TEXT,
       allowNull: true,
-      defaultValue: [],
+      defaultValue: '[]',
+      // Serialize array → JSON string on save, deserialize on read
+      get() {
+        const raw = this.getDataValue('tags');
+        if (!raw) return [];
+        try { return JSON.parse(raw); } catch { return []; }
+      },
+      set(val) {
+        this.setDataValue('tags', JSON.stringify(Array.isArray(val) ? val : []));
+      },
     },
     user_id: {
       type: DataTypes.INTEGER,

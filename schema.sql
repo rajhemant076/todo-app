@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS todos (
   priority    ENUM('low','medium','high') NOT NULL DEFAULT 'medium',
   due_date    DATE,
   category    VARCHAR(100),
-  tags        JSON,
+  tags        TEXT,
   user_id     INT UNSIGNED    NOT NULL,
   created_at  DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at  DATETIME        NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
