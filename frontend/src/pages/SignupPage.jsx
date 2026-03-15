@@ -72,7 +72,7 @@ export default function SignupPage() {
                 autoComplete="name"
                 value={form.name}
                 onChange={handle('name')}
-                placeholder="Jane Smith"
+                placeholder="Enter your name"
                 className={`input-base ${errors.name ? 'border-red-400 focus:ring-red-400/40 focus:border-red-400' : ''}`}
               />
               {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
@@ -85,7 +85,7 @@ export default function SignupPage() {
                 autoComplete="email"
                 value={form.email}
                 onChange={handle('email')}
-                placeholder="you@example.com"
+                placeholder="Enter your email"
                 className={`input-base ${errors.email ? 'border-red-400 focus:ring-red-400/40 focus:border-red-400' : ''}`}
               />
               {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}

@@ -72,7 +72,7 @@ export default function LoginPage() {
                 autoComplete="email"
                 value={form.email}
                 onChange={handle('email')}
-                placeholder="you@example.com"
+                placeholder="Enter your email"
                 className={`input-base ${errors.email ? 'border-red-400 focus:ring-red-400/40 focus:border-red-400' : ''}`}
               />
               {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
