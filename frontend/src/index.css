@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    @apply bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Syne', sans-serif;
+  }
+}
+
+@layer components {
+  /* Glass card effect */
+  .glass {
+    @apply bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border border-white/40 dark:border-slate-700/50;
+  }
+
+  .glass-strong {
+    @apply bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200/80 dark:border-slate-700/80;
+  }
+
+  /* Input styles */
+  .input-base {
+    @apply w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700
+           bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100
+           placeholder-slate-400 dark:placeholder-slate-500
+           focus:outline-none focus:ring-2 focus:ring-sky-500/40 focus:border-sky-500
+           transition-all duration-200 text-sm;
+  }
+
+  /* Button base */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl
+           font-semibold text-sm transition-all duration-200
+           focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-primary {
+    @apply btn bg-sky-600 hover:bg-sky-700 text-white focus:ring-sky-500
+           shadow-lg shadow-sky-500/25 hover:shadow-sky-500/40 hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-ghost {
+    @apply btn bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300;
+  }
+
+  .btn-danger {
+    @apply btn bg-red-500/10 hover:bg-red-500/20 text-red-600 dark:text-red-400;
+  }
+
+  /* Priority badges */
+  .badge-low {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-mono font-medium
+           bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400;
+  }
+  .badge-medium {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-mono font-medium
+           bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-400;
+  }
+  .badge-high {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-mono font-medium
+           bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400;
+  }
+}
+
+@layer utilities {
+  /* Shimmer skeleton animation */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      theme('colors.slate.200') 25%,
+      theme('colors.slate.100') 50%,
+      theme('colors.slate.200') 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 0.5rem;
+  }
+
+  .dark .skeleton {
+    background: linear-gradient(
+      90deg,
+      theme('colors.slate.800') 25%,
+      theme('colors.slate.700') 50%,
+      theme('colors.slate.800') 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  /* Scrollbar styling */
+  .scrollbar-thin::-webkit-scrollbar { width: 4px; }
+  .scrollbar-thin::-webkit-scrollbar-track { @apply bg-transparent; }
+  .scrollbar-thin::-webkit-scrollbar-thumb { @apply bg-slate-300 dark:bg-slate-600 rounded-full; }
+
+  /* Mesh gradient background */
+  .mesh-bg {
+    background-image:
+      radial-gradient(at 20% 20%, hsla(213, 94%, 68%, 0.15) 0px, transparent 60%),
+      radial-gradient(at 80% 0%, hsla(264, 80%, 70%, 0.12) 0px, transparent 50%),
+      radial-gradient(at 80% 80%, hsla(213, 94%, 60%, 0.1) 0px, transparent 50%);
+  }
+
+  .dark .mesh-bg {
+    background-image:
+      radial-gradient(at 20% 20%, hsla(213, 94%, 50%, 0.08) 0px, transparent 60%),
+      radial-gradient(at 80% 0%, hsla(264, 80%, 60%, 0.07) 0px, transparent 50%),
+      radial-gradient(at 80% 80%, hsla(213, 94%, 50%, 0.06) 0px, transparent 50%);
+  }
+}
