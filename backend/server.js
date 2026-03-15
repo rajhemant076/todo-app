@@ -51,7 +51,7 @@ app.use(errorHandler);
 const startServer = async () => {
   try {
     // Sync all models with the database (alter: true updates columns safely)
-    await sequelize.sync({ alter: true });
+    await sequelize.sync({ force: false });
     console.log('✅ Database synchronized successfully.');
 
     app.listen(PORT, () => {
